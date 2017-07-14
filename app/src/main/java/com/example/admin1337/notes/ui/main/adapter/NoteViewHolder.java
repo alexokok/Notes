@@ -6,6 +6,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.example.admin1337.notes.R;
+import com.example.admin1337.notes.model.Note;
 
 /**
  * @author Alexey Mazaev
@@ -14,11 +15,17 @@ import com.example.admin1337.notes.R;
 public class NoteViewHolder
     extends RecyclerView.ViewHolder {
 
-  @BindView(R.id.tvTitle) private TextView title;
+  @BindView(R.id.tvTitle) TextView title;
 
-  @BindView(R.id.tvBody) private TextView body;
+  @BindView(R.id.tvBody) TextView body;
 
   public NoteViewHolder(View itemView) {
     super(itemView); ButterKnife.bind(this, itemView);
+  }
+
+  public void bind(Object item) {
+    Note note = (Note) item;
+
+    title.setText(note.getTitle()); body.setText(note.getBody());
   }
 }

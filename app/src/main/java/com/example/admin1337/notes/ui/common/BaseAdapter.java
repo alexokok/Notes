@@ -48,4 +48,8 @@ public class BaseAdapter<T>
 
     notifyDataSetChanged();
   }
+
+  public void addDelegate(AdapterDelegate<T> delegate) {
+    manager.addDelegate(delegate);
+  }
 }
